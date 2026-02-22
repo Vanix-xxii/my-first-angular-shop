@@ -1,0 +1,84 @@
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="brand-icon">✦</span>
+    <span class="brand-name">{{ title }}</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="cart-icon">
+    🛍️ <span class="cart-badge">{{ cartCount }}</span>
+  </div>
+</nav>
+
+<!-- TOAST NOTIFICATION -->
+<div class="toast" *ngIf="addedMessage">{{ addedMessage }}</div>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="hero-tagline">Luxury Fragrances</p>
+    <h1 class="hero-title">Discover Your<br><em>Signature Scent</em></h1>
+    <p class="hero-sub">Handcrafted perfumes from the world's finest ingredients.<br>Each bottle tells a story only you can wear.</p>
+    <a href="#products" class="hero-btn">Explore Collection</a>
+  </div>
+  <div class="hero-visual">
+    <div class="bottle-anim">🧴</div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+</section>
+
+<!-- PRODUCTS SECTION -->
+<section class="products-section" id="products">
+  <div class="section-header">
+    <span class="section-label">Our Collection</span>
+    <h2 class="section-title">Finest Perfumes</h2>
+    <p class="section-sub">Each fragrance is a masterpiece, bottled for the discerning soul.</p>
+  </div>
+
+  <div class="products-grid">
+    <div class="product-card" *ngFor="let product of products">
+      <div class="product-icon">{{ product.icon }}</div>
+      <div class="product-note">{{ product.note }}</div>
+      <h3 class="product-name">{{ product.name }}</h3>
+      <p class="product-desc">{{ product.description }}</p>
+      <div class="product-footer">
+        <span class="product-price">₱{{ product.price | number }}</span>
+        <button class="add-btn" (click)="addToCart(product.name)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <h2 class="contact-title">Get in Touch</h2>
+    <p class="contact-sub">Have questions about our fragrances? We'd love to hear from you.</p>
+    <div class="contact-cards">
+      <div class="contact-card">
+        <span class="contact-icon">📍</span>
+        <p>123 Fragrance Blvd, Manila, Philippines</p>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">📧</span>
+        <p>hello&#64;scentoria.ph</p>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">📞</span>
+        <p>+63 912 345 6789</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="footer-brand">✦ {{ title }}</p>
+  <p class="footer-copy">&copy; 2025 Scentoria. All rights reserved. Crafted with love &amp; passion.</p>
+</footer>
